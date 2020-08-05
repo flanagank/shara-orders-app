@@ -1,6 +1,6 @@
 # Shara Orders App
 
-> A Sample App for Shara orders By Flanagan
+> A Sample App for Shara orders By Flanagan 
 
 ## Usage
 
@@ -21,3 +21,9 @@ tns debug <platform>
 tns build <platform> --env.production
 
 ```
+
+## Assumptions
+
+> No Code Sharing with web app
+> No unit tests required
+ 
