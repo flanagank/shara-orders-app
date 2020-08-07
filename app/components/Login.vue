@@ -83,10 +83,10 @@
                 processing: false,
                 user: {
                     username: "",
-                    email: "fkhumbula@live.com",
+                    email: "",
                     mobile_number: "",
                     address: "",
-                    password: "#pass123",
+                    password: "",
                     confirmPassword: ""
                 }
             };
@@ -119,16 +119,24 @@
                         var result = response.content.toJSON();
          
                         //add response codes
-                        if(result.token.length > 10){
+                        if(result.hasOwnProperty('token')){
                            
                             this.processing = false;
                             appSettings.setString("user", JSON.stringify(result));
                             this.$navigateTo(Home, { clearHistory: true });
                         }else{
 
+                            var message = '';
+
+                            if(result.hasOwnProperty('message')){
+                                message = result.message;
+                            }
+
                             this.alert(
-                                "Login failed! Invalid login details" + error
+                                "Login failed! " + message
                             );
+
+                              this.processing = false;
 
                         }
                   
@@ -154,16 +162,18 @@
                         .then(response => {
                             var result = response.content.toJSON();
                             //add response codes
-                            if(result.id > 0){
+                            if(result.hasOwnProperty('message')){
+                               this.alert(
+                                    "Registration Failed! "  + result.message
+                                );
+
                                   this.processing = false;
+                            }else{
+
+                                this.processing = false;
                                 this.alert(
                                     "Your account was successfully created.");
                                 this.isLoggingIn = true;
-                            }else{
-
-                                this.alert(
-                                    "Login failed! Invalid login details" + error
-                                );
 
                             }
                     

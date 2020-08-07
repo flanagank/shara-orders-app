@@ -1,6 +1,6 @@
 # Shara Orders App
 
-> A Sample App for Shara orders By Flanagan 
+> A Sample App for Shara orders By Flanagan Khumbula
 
 ## Usage
 

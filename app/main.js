@@ -48,7 +48,7 @@ if (TNS_ENV !== 'production') {
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
 
-appSettings.setString("appBaseURI", "http://192.168.43.254:3333"); //TODO:load from firebase config
+appSettings.setString("appBaseURI", "https://shara-orders-backend.herokuapp.com"); //TODO:put in firebase config
 
 Vue.registerElement(
     'RadSideDrawer',
